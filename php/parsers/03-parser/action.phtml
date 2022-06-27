@@ -1,0 +1,233 @@
+<?php
+
+function GetPageContent($url, $agent = false){
+   $contentPage = '';
+   $ch = curl_init();
+   curl_setopt($ch, CURLOPT_HEADER, 0);
+   curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+   curl_setopt($ch, CURLOPT_TIMEOUT, 30);
+   curl_setopt($ch, CURLOPT_USERAGENT, "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)");
+   curl_setopt($ch, CURLOPT_URL, $url);
+   $contentPage = curl_exec($ch);
+   curl_close($ch);
+   return trim($contentPage);
+}
+
+function Parse($content, $url){
+   $main_content = $content;
+   $main_url = $url;
+
+   $start_str = '<div class=\"mtop\">';
+   $stop_str = '>����� &gt;&gt;</a>';
+
+   $rule = "!".$start_str."(.*?)".$stop_str."!si";
+   preg_match($rule,$main_content,$content);
+   $content = $content[0];
+
+   for ($i=1; $i<=10; $i++) {
+      if ($i<10) {
+         $st = strpos($content, '<div class="mtop">', 1);
+         $one = substr($content, 0, $st);
+         $content = substr($content, $st);
+
+         $start_answ = '<span class=\"authoritative\">';$stop_answ = '</a><br></div>';$rule_answ = "!".$start_answ."(.*?)".$stop_answ."!si";
+         if (preg_match($rule_answ, $one, $a))
+         {
+
+         // name
+         $start = '<div class=\"mtop\"><b>';$stop = '</b>';$rule_name = "!".$start."(.*?)".$stop."!si";
+         preg_match($rule_name,$one,$name);
+         $start = '<b>';$stop = '<i>';$rule_name = "!".$start."(.*?)".$stop."!si";
+         preg_match($rule_name,$name[0],$namefull);
+
+         $namefull[1] = preg_replace("/;/","",$namefull[1]);
+         $namefull[1] = preg_replace("/\"/","",$namefull[1]);
+
+         $data[$i]["name"] = $namefull[1];
+
+         // data
+         $start_data = '<i>';$stop_data = '</i></b><br>';$rule_date = "!".$start_data."(.*?)".$stop_data."!si";
+         preg_match($rule_date,$one,$date);
+         $data[$i]["date"] = $date[1];
+         // question_announce
+         $start_quest_announce = '</i></b><br>';$stop_quest_announce = '<a href=\"';$rule_quest_announce = "!".$start_quest_announce."(.*?)".$stop_quest_announce."!si";
+         preg_match_all($rule_quest_announce, $one, $question);
+
+         $question[1][0] = preg_replace("/;/","",$question[1][0]);
+         $question[1][0] = preg_replace("/\"/","",$question[1][0]);
+         $question[1][0] = preg_replace("/([\r|\n]+)/","",$question[1][0]);
+
+         $data[$i]["quest_announce"] = $question[1][0];
+         // answer
+         $start_answ = '<span class=\"authoritative\">';$stop_answ = '</a><br></div>';$rule_answ = "!".$start_answ."(.*?)".$stop_answ."!si";
+         preg_match_all($rule_answ, $one, $answ);
+         $start_answw = '<br>';$stop_answw = '<a';$rule_answw = "!".$start_answw."(.*?)".$stop_answw."!si";
+         $tmp = sizeof ($answ[0]);
+         for ($j=0; $j<$tmp; $j++){
+               preg_match_all($rule_answw, $answ[0][$j], $answw[$i][$j]);
+
+               $answw[$i][$j][1][0] = preg_replace("/\"/","",$answw[$i][$j][1][0]);
+               $answw[$i][$j][1][0] = preg_replace("/;/","",$answw[$i][$j][1][0]);
+               $answw[$i][$j][1][0] = preg_replace("/([\r|\n]+)/","",$answw[$i][$j][1][0]);
+
+               $data[$i]["answer"][$j] = $answw[$i][$j][1][0];
+         }
+         // link
+         $start_link = '<a href=\"';$stop_link = '\">';$rule_link = "!".$start_link."(.*?)".$stop_link."!si";
+         preg_match($rule_link, $one, $link);
+         // question__more
+         $start_more = '</i></b><br>';$stop_more = '&lt;&lt; ��������� � �����������</a>';$rule_more = "!".$start_more."(.*?)".$stop_more."!si";
+         $url_more = $main_url.$link[1];
+         preg_match_all ($rule_more,GetPageContent($url_more),$content_descr);
+         $start = '</i></b><br>';$stop = '</div>';$ruler = "!".$start."(.*?)".$stop."!si";
+         preg_match_all ($ruler,$content_descr[0][0],$descr);
+
+         $descr[1][0] = preg_replace("/\"/","",$descr[1][0]);
+         $descr[1][0] = preg_replace("/;/","",$descr[1][0]);
+         $descr[1][0] = preg_replace("/([\r|\n]+)/","",$descr[1][0]);
+
+         $data[$i]["quest_more"] = $descr[1][0];
+         } else {}
+      }
+      else
+      {
+         $start_answ = '<span class=\"authoritative\">';$stop_answ = '</a><br></div>';$rule_answ = "!".$start_answ."(.*?)".$stop_answ."!si";
+         if (preg_match($rule_answ, $content, $a))
+         {
+         // name
+         $start = '<div class=\"mtop\"><b>';$stop = '</b>';$rule_name = "!".$start."(.*?)".$stop."!si";
+         preg_match($rule_name,$content,$name);
+         $start = '<b>';$stop = '<i>';$rule_name = "!".$start."(.*?)".$stop."!si";
+         preg_match($rule_name,$name[0],$namefull);
+         $data[$i]["name"] = $namefull[1];
+         // data
+         $start_data = '<i>';$stop_data = '</i></b><br>';$rule_date = "!".$start_data."(.*?)".$stop_data."!si";
+         preg_match($rule_date,$content,$date);
+         $data[$i]["date"] = $date[1];
+         // question_announce
+         $start_quest_announce = '</i></b><br>';$stop_quest_announce = '<a href=\"';$rule_quest_announce = "!".$start_quest_announce."(.*?)".$stop_quest_announce."!si";
+         preg_match_all($rule_quest_announce, $content, $question);
+
+         $question[1][0] = preg_replace("/\"/","",$question[1][0]);
+         $question[1][0] = preg_replace("/;/","",$question[1][0]);
+         $question[1][0] = preg_replace("/([\r|\n]+)/","",$question[1][0]);
+
+         $data[$i]["quest_announce"] = $question[1][0];
+         // answer
+         $start_answ = '<span class=\"authoritative\">';$stop_answ = '</a><br></div>';$rule_answ = "!".$start_answ."(.*?)".$stop_answ."!si";
+         preg_match_all($rule_answ, $content, $answ);
+         $start_answw = '<br>';$stop_answw = '<a';$rule_answw = "!".$start_answw."(.*?)".$stop_answw."!si";
+         $tmp = sizeof ($answ[0]);
+         for ($j=0; $j<$tmp; $j++){
+               preg_match_all($rule_answw, $answ[0][$j], $answw[$i][$j]);
+
+               $answw[$i][$j][1][0] = preg_replace("/\"/","",$answw[$i][$j][1][0]);
+               $answw[$i][$j][1][0] = preg_replace("/;/","",$answw[$i][$j][1][0]);
+               $answw[$i][$j][1][0] = preg_replace("/([\r|\n]+)/","",$answw[$i][$j][1][0]);
+
+               $data[$i]["answer"][$j] = $answw[$i][$j][1][0];
+         }
+         // link
+         $start_link = '<a href=\"';$stop_link = '\">';$rule_link = "!".$start_link."(.*?)".$stop_link."!si";
+         preg_match($rule_link, $content, $link);
+      // question__more
+         $start_more = '</i></b><br>';$stop_more = '&lt;&lt; ��������� � �����������</a>';$rule_more = "!".$start_more."(.*?)".$stop_more."!si";
+         $url_more = $main_url.$link[1];
+         preg_match_all ($rule_more,GetPageContent($url_more),$content_descr);
+         $start = '</i></b><br>';$stop = '</div>';$ruler = "!".$start."(.*?)".$stop."!si";
+         preg_match_all ($ruler,$content_descr[0][0],$descr);
+
+         $descr[1][0] = preg_replace("/\"/","",$descr[1][0]);
+         $descr[1][0] = preg_replace("/;/","",$descr[1][0]);
+         $descr[1][0] = preg_replace("/([\r|\n]+)/","",$descr[1][0]);
+
+         $data[$i]["quest_more"] = $descr[1][0];
+      }
+      }
+   }
+   return $data;
+}
+
+set_time_limit(0);
+
+$url = $_POST["url"];
+$main_url = $url;
+
+if ($_POST["number"]!=''){
+   $number = $_POST["number"];
+   for ($i=0; $i<$number; $i++)
+   {
+      // ���� url �� ������ �������� �������� �� flag = true
+      $start = 'section';$stop = 'offset';$rule = "!".$start."(.*?)".$stop."!si";
+      if (!preg_match_all($rule, $url, $firsturl)) {$flag = true;} else {$flag = false;}
+         $content1 = GetPageContent($url);
+         if ($flag)
+         {
+            $start_rule = '</a><br></div><p align=\"center\"><a href=\"';$stop_rule = '\">�����';$rule_for_next = "!".$start_rule."(.*?)".$stop_rule."!si";
+            preg_match($rule_for_next, $content1, $next);
+            $massive[$i] = Parse($content1, $main_url);
+            $url = $main_url.$next[1];
+         }
+         else
+         {
+            $start_rule = '&nbsp;&nbsp;&nbsp;&nbsp;<a href=\"';$stop_rule = '\">�����';$rule_for_next = "!".$start_rule."(.*?)".$stop_rule."!si";
+            preg_match($rule_for_next, $content1, $next);
+            $massive[$i] = Parse($content1, $main_url);
+            $url = $main_url.$next[1];
+         }
+   }
+}
+else
+{
+$i=0;
+while (true)
+{
+   $start = 'section';$stop = 'offset';$rule = "!".$start."(.*?)".$stop."!si";
+   if (!preg_match_all($rule, $url, $firsturl)) {$flag = true;} else {$flag = false;}
+   $content1 = GetPageContent($url);
+   if (!$content1) break;
+   if ($flag)
+   {
+      $start_rule = '</a><br></div><p align=\"center\"><a href=\"';$stop_rule = '\">�����';$rule_for_next = "!".$start_rule."(.*?)".$stop_rule."!si";
+      if (!preg_match($rule_for_next, $content1, $next)) {break;}
+      $massive[$i] = Parse($content1, $main_url);$i++;
+      $url = $main_url.$next[1];
+   }
+   else
+   {
+      $start_rule = '&nbsp;&nbsp;&nbsp;&nbsp;<a href=\"';$stop_rule = '\">�����';
+      $rule_for_next = "!".$start_rule."(.*?)".$stop_rule."!si";
+      if (!preg_match($rule_for_next, $content1, $next)) {break;}
+      $massive[$i] = Parse($content1, $main_url);$i++;
+      $url = $main_url.$next[1];
+   }
+}
+}
+// ������ ����������� ������������ �������� $data � �������� �������� = $number
+print_r ($massive);
+
+$fp = fopen ("data/data.csv", "w+");
+fwrite($fp,"���;����;������;�����\n\n");
+
+for ($i=0; $i<sizeof($massive); $i++)
+{
+     for ($j=1; $j<=10; $j++)
+     {
+      if (sizeof($massive[$i][$j]) > 0) {
+      fwrite($fp,$massive[$i][$j]["name"]);fwrite($fp,";");
+      fwrite($fp,$massive[$i][$j]["date"]);fwrite($fp,";");
+   //  fwrite($fp,$massive[$i][$j]["quest_announce"]);fwrite($fp,";");
+      fwrite($fp,$massive[$i][$j]["quest_more"]);fwrite($fp,";");
+      for ($k=0;$k<sizeof($massive[$i][$j]["answer"]);$k++) {
+            // $massive[$i][$j]["answer"][$k] = preg_replace("/\"/","",$massive[$i][$j]["answer"][$k]);
+            fwrite($fp,$massive[$i][$j]["answer"][$k]);fwrite($fp,";");
+    }
+   fwrite($fp,"\n");
+   }
+  }
+   fwrite($fp,"\n");
+}
+fclose ($fp);
+
+echo "ok  "; echo "<a href=\"index.phtml\">back</a>";
+?>
