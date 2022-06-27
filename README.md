@@ -1,2 +1,2 @@
-Sergey Smirnov, 11.02.1984
-portfolio
+Sergey Smirnov
+info@serg-smirnoff.com
