@@ -1,4 +1,4 @@
 // hide menu by esc
 if (e.which === 27) {
-    $('.class_mane').hide();
+    $('.class_name').hide();
 }
