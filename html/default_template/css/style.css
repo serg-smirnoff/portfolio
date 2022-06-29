@@ -1,0 +1,19 @@
+@import url(reset.css);
+@import url(media-queries.css);
+@font-face {font-family: "";src: url("../fonts/.ttf");}
+
+BODY {font-family: Tahoma, Verdana, sans-serif;}
+A {}
+A:link {}
+A:visited {}
+A:hover {}
+A:active {}
+P {}
+H1 {}
+H2 {}
+STRONG{}
+OL, UL{}
+UL UL {}
+LI {}
+TABLE {border: 0px; border-collapse: collapse; }
+TABLE TD{padding: 0px;}

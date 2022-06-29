@@ -1,0 +1,1345 @@
+*, body {
+
+
+
+        margin: 0px;
+
+
+
+        padding: 0px;
+
+
+
+}
+
+
+
+body {
+
+
+
+        background-color: #D6AF88;
+
+
+
+        background-image: url(img/top_bg.jpg);
+
+
+
+        background-repeat: repeat-x;
+
+
+
+        background-position: left top;
+
+
+
+        font-family: Arial, Helvetica, sans-serif;
+
+
+
+        font-size: 13px;
+
+
+
+        line-height: normal;
+
+
+
+        color: #333333;
+
+
+
+        font-weight: normal;
+
+
+
+        text-decoration: none;
+
+
+
+}
+
+
+
+h2 {
+
+        margin: 20px 0px 15px 0px;
+		
+        font-size: 11px;
+
+}
+
+
+
+h3 {
+
+        
+
+}
+
+
+
+
+#main {
+
+
+
+        background: url("img/top.jpg") no-repeat left top;
+
+
+
+        /*width: 1000px;
+
+        
+
+        expression(document.body.clientWidth > 1000 ? "100%" : "1000px"); */
+
+
+
+}
+
+
+
+#adres {
+
+
+
+        color: black;
+
+
+
+        padding-top: 420px;
+
+
+
+        padding-left: 30px;
+
+
+
+        font-size: 12px;
+
+
+
+        width: 270px;
+
+
+
+}
+
+
+
+#adres b {
+
+
+
+        font-family: "Arial Narrow", Arial, Tahoma, Verdana;
+
+
+
+        font-size: 24px;
+
+
+
+        font-weight: bold;
+
+
+
+}
+
+
+
+#leftmenu {
+
+
+
+        width: 300px;
+
+
+
+        padding-top: 20px;
+
+
+
+        color: #503728;
+
+
+
+}
+
+
+
+#leftmenu b {
+
+
+
+        padding-top: 15px;
+
+
+
+        padding-bottom: 15px;
+
+
+
+        background-color: #C79152;
+
+
+
+        display: block;
+
+
+
+        padding-left: 50px;
+
+
+
+        background-image: url(img/list1.gif);
+
+
+
+        background-repeat: no-repeat;
+
+
+
+        background-position: 30px 18px;
+
+
+
+        font-size: 14px;
+
+
+
+        text-transform: uppercase;
+
+
+
+        color: #FFFFFF;
+
+
+
+}
+
+
+
+#leftmenu ul {
+
+
+
+        margin-left: 50px;
+
+
+
+        margin-top: 15px;
+
+
+
+        margin-bottom: 15px;
+
+
+
+        list-style-type: none;
+
+
+
+}
+
+
+
+#leftmenu ul li {
+
+
+
+        background-image: url(img/list2.gif);
+
+
+
+        background-position: 0px 5px;
+
+
+
+        padding-left: 20px;
+
+
+
+        background-repeat: no-repeat;
+
+
+
+}
+
+
+
+#leftmenu ol {
+
+
+
+        margin-left: 40px;
+
+
+
+        list-style-type: none;
+
+
+
+}
+
+
+
+#leftmenu ol li {
+
+
+
+        background-image: url(img/list3.gif);
+
+
+
+        background-repeat: no-repeat;
+
+
+
+        background-position: left center;
+
+
+
+        padding-left: 20px;
+
+
+
+}
+
+
+
+#leftmenu li {
+
+
+
+        margin-top: 3px;
+
+
+
+        margin-bottom: 3px;
+
+
+
+}
+
+
+
+#leftmenu a {
+
+
+
+        color: #503728;
+
+
+
+        text-decoration: underline;
+
+
+
+}
+
+
+
+#leftmenu ul li {
+
+
+
+        font-size: 16px;
+
+
+
+}
+
+
+
+#leftmenu ol li {
+
+
+
+        font-size: 11px;
+
+
+
+}
+
+
+
+#leftmenu a:hover {
+
+
+
+        color: #000000;
+
+
+
+        text-decoration: none;
+
+
+
+}
+
+
+
+#left {
+
+
+
+        float: left;
+
+
+
+}
+
+
+
+#right {
+
+
+
+        /*margin-left: 320px;*/
+
+
+
+        padding-top: 60px;
+
+
+
+
+                        
+
+}
+
+
+
+#menutop {
+
+
+
+        font-family: Arial, Helvetica, sans-serif;
+
+
+
+        font-size: 12px;
+
+
+
+        font-weight: bold;
+
+
+
+        text-transform: uppercase;
+
+
+
+        color: #C5935E;
+
+
+
+        text-decoration: none;
+
+        
+
+}
+
+
+
+#menutop img {
+
+
+
+        float: left;
+
+
+
+}
+
+
+
+#menutop p {
+
+
+
+        text-align: center;
+
+
+
+        padding-top: 40px;
+
+
+
+        padding-bottom: 40px;
+
+
+
+}
+
+
+
+#menutop a {
+
+
+
+        color: #000;
+
+
+
+        text-decoration: none;
+
+
+
+        font-size: 12px;
+
+
+
+        padding: 0 10px;
+
+
+
+}
+
+
+
+#menutop span {
+
+
+
+        font-size: 12px;
+
+
+
+        padding: 0 10px;
+
+
+
+}
+
+
+
+#menutop a:hover {
+
+
+
+        text-decoration: underline;
+
+
+
+}
+
+
+
+#reklama {
+
+
+
+        /*background-color: #FFFFFF;*/
+
+
+
+        /*padding: 235px 10px 10px;*/
+
+
+
+        margin: 20px 0 98px;
+
+
+
+        /*min-width: 490px;*/
+
+
+
+        /*width: 651px;*/
+
+
+
+        /*width: 600px;*/
+
+
+
+        /*width: 145px;*/
+
+
+
+        /*height: 12px;*/
+
+
+
+        height: 139px;
+
+
+
+        background-image: url(img/advert.jpg);
+
+
+
+        background-repeat: no-repeat;
+
+
+
+        background-position: 10px 10px;
+
+        
+
+        text-align: center;
+
+        
+
+        background-position: center;
+
+
+
+}
+
+
+
+#content {
+
+
+
+        padding: 20px 10px 10px;
+
+
+
+        margin-top: 20px;
+
+
+
+        background-color: #F3E7DB;
+
+
+
+        margin-bottom: 40px;
+
+
+
+        /*min-width: 631px;*/
+		
+		width: 670px;
+
+
+
+}
+
+
+
+#content h1 {
+
+
+
+        font-family: "Arial Narrow", Arial, Tahoma, Verdana;
+
+
+
+        font-size: 24px;
+
+
+
+        font-weight: normal;
+
+
+
+        color: #660000;
+
+
+
+        text-decoration: none;
+
+
+
+        margin-bottom: 20px;
+
+
+
+}
+
+
+
+#door {
+
+
+
+        padding: 10px;
+
+
+
+        border: 1px solid #999999;
+
+
+
+        min-height: 200px;
+
+
+
+        _height: 200px;
+
+
+
+        margin-bottom: 10px;
+
+
+
+}
+
+
+
+#door h2, #door h2 a {
+
+
+
+        font-family: "Arial Narrow", Arial, Tahoma, Verdana;
+
+
+
+        color: #333333;
+
+
+
+        font-weight: bold;
+
+
+
+        font-size: 18px;
+
+
+
+        text-decoration: underline;
+
+
+
+        margin: 0 0 15px 0;
+
+
+
+        float: none;
+
+
+
+}
+
+
+
+#door h2 a:hover {
+
+
+
+        color: #660000;
+
+
+
+}
+
+
+
+#door span {
+
+
+
+        float: left;
+
+
+
+        text-align: center;
+
+
+
+        margin-right: 10px;
+
+
+
+        padding-right: 20px;
+
+
+
+        padding-left: 20px;
+
+
+
+}
+
+
+
+#door span img {
+
+
+
+        display: block;
+
+
+
+        padding-bottom: 10px;
+
+
+
+        
+
+
+
+        width:auto !important;
+
+
+
+        
+
+
+
+        height:170px !important;
+
+
+
+}
+
+
+
+#door span a {
+
+
+
+        color: #000000;
+
+
+
+        text-decoration: underline;
+
+
+
+}
+
+
+
+#door span a:hover {
+
+
+
+        color: #660000;
+
+
+
+}
+
+
+
+#door a {
+
+
+
+        float: left;
+
+
+
+        text-align: center;
+
+
+
+        margin: 0 20px 20px 0;
+
+
+
+        color: #600;
+
+
+
+}
+
+
+
+#door a img {
+
+
+
+        display: block;
+
+
+
+}
+
+
+
+#bottom {
+
+
+
+        background-color: #503728;
+
+
+
+        clear: both;
+
+
+
+        padding: 10px;
+
+
+
+        text-align: right;
+
+
+
+        color: #D6AF88;
+
+
+
+}
+
+
+
+#bottom span {
+
+
+
+        color: #70503C;
+
+
+
+}
+
+
+
+#bottom a {
+
+
+
+        color: #FFFFFF;
+
+
+
+        text-decoration: none;
+
+
+
+}
+
+
+
+#bottom a:hover {
+
+
+
+        color: #F3E7DB;
+
+
+
+        text-decoration: underline;
+
+
+
+}
+
+
+
+#bottom p {
+
+
+
+        margin-bottom: 10px;
+
+
+
+}
+
+
+
+#bottom img {
+
+
+
+        float: left;
+
+
+
+        margin-right: 10px;
+
+
+
+}
+
+
+
+#reklama a {
+
+
+
+        color: #000000;
+
+
+
+        text-decoration: underline;
+
+
+
+}
+
+
+
+#reklama a:hover {
+
+
+
+        color: #660000;
+
+
+
+}
+
+
+
+#text {
+
+
+
+        font-size: 12px;
+
+
+
+        text-decoration: none;
+
+
+
+}
+
+
+
+#text img {
+
+
+
+        margin: 5px;
+
+
+
+}
+
+
+
+#text p {
+
+
+
+        margin-bottom: 15px;
+
+
+
+}
+
+
+
+#text td img {
+
+
+
+        margin: 0px;
+
+
+
+        padding: 0px;
+
+
+
+}
+
+
+
+#text td ol {
+
+
+
+        margin-left: 20px;
+
+
+
+}
+
+
+
+#text td ol li {
+
+
+
+        margin-bottom: 5px;
+
+
+
+}
+
+
+
+#text td ul {
+
+
+
+        margin-bottom: 5px;
+
+
+
+        margin-left: 30px;
+
+
+
+        list-style-type: none;
+
+
+
+        margin-top: 10px;
+
+
+
+}
+
+
+
+#big {
+
+
+
+
+
+
+
+}
+
+
+
+#big td {
+
+
+
+        padding: 5px;
+
+
+
+}
+
+
+
+#cena {
+
+
+
+        font-size: 11px;
+
+
+
+        color: #666666;
+
+
+
+}
+
+
+
+#doortable {
+
+
+
+        margin-bottom: 15px;
+
+
+
+}
+
+
+
+#doortable td {
+
+
+
+        padding: 10px;
+
+
+
+}
+
+
+
+#doorpic {
+
+
+
+        font-size: 11px;
+
+
+
+        color: #999999;
+
+
+
+}
+
+
+
+#doorpic p {
+
+
+
+        margin-bottom: 15px;
+
+
+
+}
+
+
+
+#doorpic img {
+
+
+
+        float: none;
+
+
+
+        text-align: center;
+
+
+
+}
+
+
+
+.imgdescr {
+
+
+
+        text-align: center;
+
+
+
+        font-weight: bold;
+
+
+
+}
+
+
+
+.link {color: #000000;}
+
+
+
+.link:hover {color: #660000;text-decoration: none;}
+
+
+
+
+
+
+
+.sc {
+
+
+
+        padding: 10px 20px 20px 30px;
+
+
+
+        margin: 5px 0;
+
+
+
+        font-size: 14px;
+
+
+
+        text-align: justify;
+
+
+
+}
+
+
+
+/*.sc p {
+
+
+
+        margin: 5px 0;
+
+
+
+}*/
+
+
+
+.indextext {
+
+
+
+        font-size: 14px;
+
+
+
+        text-align: justify;
+
+
+
+}
+
+
+
+.spec_predl div, .news_list div {
+
+        border:1px solid #999999;
+
+        margin-bottom:10px;
+
+        padding:10px;
+
+}
+
+
+
+.div_contacts h2 {
+
+        font-size: 26px;
+
+        line-height: 26px;
+
+        margin-top: 30px !important;
+
+}
+
+
+
+.div_contacts p {
+
+        font-size: 16px;
+
+        line-height: 20px;
+
+}
+
+
+
+.div_contacts img {
+
+        margin: 10px 0px;
+
+}
+
+table#my_table {
+	border-collapse: collapse;
+	vertical-align: top;
+	width: 980px;
+}
+
+table#my_table td {
+	vertical-align: top;
+}
+
+div#bottom {
+	width: 970px;
+}
+
+.newsmen {
+	margin-top:-255px;
+}
+
+#specpred {
+	font-size: 13px;
+}
+
+#specpred h2 {
+	font-size: 15px;
+}
+
+#ref{
+	display: none;
+}

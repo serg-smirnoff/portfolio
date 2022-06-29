@@ -1,0 +1,8 @@
+#авторизация
+AuthType Basic
+AuthName 'Admin'
+AuthUserFile /home/u39809/test.schekino.net/www/test1/.htpasswd
+Require valid-user
+
+#листинг директория
+Options +Indexes

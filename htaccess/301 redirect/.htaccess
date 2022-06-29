@@ -1,0 +1,4 @@
+Options +FollowSymLinks
+RewriteEngine on
+Redirect permanent /test    http://www.test.com/
+RewriteRule (.*) http://forum.onlysites.ru/$1 [R=301,L] 

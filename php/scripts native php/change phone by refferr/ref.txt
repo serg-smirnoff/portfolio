@@ -1,0 +1,5 @@
+typeIn
+http://yandex.ru/yandsearch
+http://www.google.ru/search
+http://nova.rambler.ru/search
+http://site1.ru

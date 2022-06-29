@@ -1,0 +1,41 @@
+*{
+	padding: 0;
+	margin: 0;
+}
+
+h1,h2,h3,h4,h5,h6,p,ul,ol{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+body {
+
+}
+img {
+	border: 0;
+}
+table {
+	border: 0;
+	border-collapse: collapse;
+}
+table td  {
+	padding: 0;
+}
+
+.debug {
+  border: 1px solid red;
+  background: blue;
+}
+
+.fl{
+	float: left;
+}
+
+.fr{
+	float: right;
+}
+
+.clear{
+	clear: both;
+}

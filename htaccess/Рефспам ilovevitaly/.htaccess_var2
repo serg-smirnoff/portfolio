@@ -1,0 +1,32 @@
+SetEnvIfNoCase User-Agent ".*MegaIndex" badbingbot
+Deny from env=badbingbot
+
+<IfModule mod_setenvif.c>
+   <FilesMatch "(.*)">
+      SetEnvIfNoCase Referer econom.co spambot=yes
+      SetEnvIfNoCase Referer ilovevitaly.com spambot=yes
+      SetEnvIfNoCase Referer ilovevitaly.ru spambot=yes
+      SetEnvIfNoCase Referer ilovevitaly.org spambot=yes
+      SetEnvIfNoCase Referer ilovevitaly.info spambot=yes
+      SetEnvIfNoCase Referer iloveitaly.ru spambot=yes
+      SetEnvIfNoCase Referer shopping.ilovevitaly.ru spambot=yes
+      SetEnvIfNoCase Referer maps.ilovevitaly.com spambot=yes
+      SetEnvIfNoCase Referer 230-60-110-78.net.hts.ru spambot=yes
+      SetEnvIfNoCase Referer net.hts.ru spambot=yes
+      SetEnvIfNoCase Referer 78.110.60.230 spambot=yes
+      SetEnvIfNoCase Referer darodar.com spambot=yes
+      SetEnvIfNoCase Referer iedit.ilovevitaly.com spambot=yes
+      SetEnvIfNoCase Referer forum.topic51720095.darodar.com spambot=yes
+      SetEnvIfNoCase Referer shopping.ilovevitaly.com spambot=yes
+      Order Allow,Deny
+      Allow from All
+      Deny from env=spambot
+   </FilesMatch>
+</IfModule>
+
+RewriteCond %{HTTP_REFERER} ilovevitaly\.com [NC,OR]
+RewriteCond %{HTTP_REFERER} ilovevitaly\.ru [NC,OR]
+RewriteCond %{HTTP_REFERER} iskalko\.ru [NC,OR]
+RewriteCond %{HTTP_REFERER} o-o-6-o-o\.ru [NC,OR]
+RewriteCond %{HTTP_REFERER} o-o-8-o-o\.ru [NC]
+RewriteRule .* - [F] 
