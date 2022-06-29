@@ -1,5 +1,4 @@
 <?php
-
 // php curl get
 function getResponse ($url) {
     $ch = curl_init($url);
@@ -28,5 +27,4 @@ function postResponse ($url, $data) {
 echo postResponse ($url, $data);
 
 // curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "GET");
-
 ?>
