@@ -8,7 +8,7 @@ $(document).ready(function(city_name, city_lat, city_lng){
         mapTypeId: google.maps.MapTypeId.ROADMAP
     }
 
-    var map = new google.maps.Map(document.getElementById("map_events"), myOptions); 
+    var map = new google.maps.Map(document.getElementById("map"), myOptions); 
 
     var marker = new google.maps.Marker({
         position: myLatlng,
@@ -17,7 +17,7 @@ $(document).ready(function(city_name, city_lat, city_lng){
         title: 'Вы здесь: ' + city_name
     });		
 
-    var map = new google.maps.Map(document.getElementById("map_events"), myOptions); 
+    var map = new google.maps.Map(document.getElementById("map"), myOptions); 
     var contentString = '<div id="content">' + city_name + '</div>';
 
     var infowindow = new google.maps.InfoWindow({
