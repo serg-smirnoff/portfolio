@@ -19,8 +19,7 @@
  *         );
  * $tree = array2tree($source, 0);
  */
-function array2tree($source_arr, $parent_id, $key_children='child_nodes', $key_id='id', $key_parent_id='parent_id')
-{
+function array2tree($source_arr, $parent_id, $key_children='child_nodes', $key_id='id', $key_parent_id='parent_id'){
         $tree=array();
         if (empty($source_arr))
                 return $tree;
@@ -41,14 +40,12 @@ function array2tree($source_arr, $parent_id, $key_children='child_nodes', $key_i
  * @param string $key_parent_id
  * @return null
  */
-function _array2treer($source_arr, &$_this, $parent_id, $_this_id, $key_children, $key_id, $key_parent_id)
-{
+function _array2treer($source_arr, &$_this, $parent_id, $_this_id, $key_children, $key_id, $key_parent_id){
         // populate current children
         foreach ($source_arr as $value)
                 if ($value[$key_parent_id]===$_this_id)
                         $_this[$key_children][$value[$key_id]]=$value;
-        if (isset($_this[$key_children]))
-        {
+        if (isset($_this[$key_children])){
                 // populate children of the current children
                 foreach ($_this[$key_children] as $value)
                         _array2treer($source_arr, $_this[$key_children][$value[$key_id]], $parent_id, $value[$key_id], $key_children, $key_id, $key_parent_id);
