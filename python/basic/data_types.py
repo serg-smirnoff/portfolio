@@ -1,24 +1,26 @@
+# -*- coding: utf-8 -*-
+
 # None (неопределенное значение переменной)
 # Логические переменные (Boolean Type)
 # Числа (Numeric Type)
-#     int – целое число
-#     float – число с плавающей точкой
-#     complex – комплексное число
+#     int - целое число
+#     float - число с плавающей точкой
+#     complex - комплексное число
 # Списки (Sequence Type)
-#     list – список
-#     tuple – кортеж
-#     range – диапазон
+#     list - список
+#     tuple - кортеж
+#     range - диапазон
 # Строки (Text Sequence Type )
 #     str
 # Бинарные списки (Binary Sequence Types)
-#     bytes – байты
-#     bytearray – массивы байт
-#     memoryview – специальные объекты для доступа к внутренним данным объекта через protocol buffer
+#     bytes - байты
+#     bytearray - массивы байт
+#     memoryview - специальные объекты для доступа к внутренним данным объекта через protocol buffer
 # Множества (Set Types)
-#     set – множество
-#     frozenset – неизменяемое множество
+#     set - множество
+#     frozenset - неизменяемое множество
 # Словари (Mapping Types)
-#     dict – словарь
+#     dict - словарь
 
 
 # None type
@@ -36,6 +38,9 @@ else:
 
 x = 7
 y = 5
+
+print(id(x))
+print(id(y))
 
 print(type(x))
 print(type(y))
@@ -61,5 +66,5 @@ y = 0.5
 print(type(x))
 print(type(y))
 
-pprint(round(x))
-pprint(round(y))
+print(round(x))
+print(round(y))
