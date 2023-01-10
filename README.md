@@ -1,3 +1,2 @@
-Sergey Smirnov
+Sergey Smirnov (info@serg-smirnoff.com)
 code portfolio
- info@serg-smirnoff.com
