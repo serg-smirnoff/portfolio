@@ -7,12 +7,10 @@ ini_set('display_startup_errors', 1);
 function combined($a, $b){
 
     foreach ($a as $k => $v){
-	$c[] = $a[$k];
-	$c[] = $b[$k];
-
+        $c[] = $a[$k];
+        $c[] = $b[$k];
     }
-
-    print_r ($c);
+    print_r($c);
 }
 
 $a = array(
@@ -28,6 +26,5 @@ $b = array(
 );
 
 combined($a,$b);
-
 
 ?>

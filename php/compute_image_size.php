@@ -1,17 +1,14 @@
 <?php
 
-function computeImageSize($imgWidth, $imgHeight, $canvasWidth, $canvasHeight,
-&$resultWidth, &$resultHeight)
+function computeImageSize($imgWidth, $imgHeight, $canvasWidth, $canvasHeight, &$resultWidth, &$resultHeight){
+    
+    //put your code here
 
-{
-//put your code here
+    if ($imgWidth > $canvasWidth) $resultWidth = $canvasWidth;
+    if ($imgHeight > $canvasHeight) $resultHeight = $canvasHeight;
 
-if ($imgWidth > $canvasWidth) $resultWidth = $canvasWidth;
-if ($imgHeight > $canvasHeight) $resultHeight = $canvasHeight;
-
-
-return imagecopyresized ($img2 , $img , 0 , 0 , $imgWidth , $imgHeight  , $resultWidth , $resultHeight , $imgWidth , $imgHeight );
-
+    return imagecopyresized ($img2 , $img , 0 , 0 , $imgWidth , $imgHeight  , $resultWidth , $resultHeight , $imgWidth , $imgHeight );
+    
 }
 
 $img = "logo.jpg";
@@ -26,5 +23,3 @@ $canvasHeight = 100;
 computeImageSize();
 
 ?>
-
-
