@@ -68,10 +68,14 @@ class ShopProduct {
         $base = "{$this->title} ({$this->producerMainName}, {$this->producerFirstName})";
         return $base;
     }
-    
 }
 
 // CDProduct extends ShopProduct
+
+// В языке РНР поддерживается наследование только от одного родителя
+// (так называемое одиночное, или простое, наследование), поэтому после
+// ключевого слова extends можно указать только одно имя базового класса.
+
 class CDProduct extends ShopProduct{
     public function __construct(string $title,
                             string $firstName,
@@ -88,7 +92,6 @@ class CDProduct extends ShopProduct{
         $base .= "Время звучания - {$this->playLength}";
         return $base;
     }
-
 }
 
 // BookProduct extends ShopProduct
