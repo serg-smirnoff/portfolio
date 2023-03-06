@@ -7,8 +7,9 @@
         public function call();
     }
 
-    /* фабрика (создает объекты классов с предопределенным интерфейсом)
-    */
+    /* фабрика (создает объекты классов 
+     * с предопределенным интерфейсом)
+     */
 
     class PhoneFactory{ 
         public function createCellPhone(): Phone {
