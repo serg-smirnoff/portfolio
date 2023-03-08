@@ -1,0 +1,9 @@
+<form name="jump1">
+<select name="myjumpbox"
+ OnChange="location.href=jump1.myjumpbox.options[selectedIndex].value">
+     <option selected>Please Select...
+     <option value="http://www.davesite.com/">davesite.com
+     <option value="http://www.neonlollipops.com/">neonlollipops.com
+     <option value="http://www.about.com/">about.com
+</select>
+</form>

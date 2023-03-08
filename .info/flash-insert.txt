@@ -1,0 +1,6 @@
+<div id="banner">
+<object type="application/x-shockwave-flash" data="assets/templates/onlysites/images/banner.swf" width="180" height="80">
+   <param name="movie" value="assets/templates/onlysites/images/banner.swf" />
+   <param name="quality" value="high" />
+</object>
+</div>
