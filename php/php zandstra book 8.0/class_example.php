@@ -17,6 +17,8 @@ class ShopProduct {
     // property discount
     private int|float $discount = 0;
     
+    // Magic methods
+    
     // constructor
     public function __construct(
                                 // properties in constructor (only php 8+)
@@ -27,6 +29,50 @@ class ShopProduct {
                                ){
     }
     
+    public function __destruct(){
+    }
+
+    // Вызывается при клонировании объекта
+    public function __call(){
+        return 'Объект клонирован';
+    }
+
+    public function __clone(){
+        return 'Объект клонирован';
+    }
+    
+    // Вызывается при обращении к неопределенному свойству
+    public function __wakeup(){
+        return 'Свойство не определено';
+    }
+
+
+
+
+    // Методы перехватчики
+
+    // Вызывается при обращении к неопределенному свойству
+    public function __get(){
+        return 'Свойство не определено';
+    }
+    
+    // Вызывается, когда присваивается значение неопределенному свойству
+    public function __set(){
+        return 'Вы пытаетесь присвоить значение неопределенному свойству';
+    }
+
+    // Вызывается, когда функция isset() вызывается для неопределенного свойства
+    public function __isset(){
+    }
+    
+    // Вызывается, когда функция unset() вызывается для неопределенного свойства
+    public function __unset(){
+    }
+    
+    // Вызывается при обращении к неопределенному нестатическому методу
+    public function __call(){
+    }
+
     // method getProducerFirstName()
     public function getProducerFirstName() : string {
         return $this->producerFirstName;
