@@ -1,2 +1,0 @@
-rm -r ~/schekino.net/www/photoalbum/tmp/ 
-UPDATE system_mod_news SET home_text = REPLACE (home_text,'Щекинское','<a href=http://www.schekino.net>Щекинское</a>')
