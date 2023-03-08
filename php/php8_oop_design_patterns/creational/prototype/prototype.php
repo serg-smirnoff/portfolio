@@ -1,5 +1,8 @@
 <?php
 
+// include dd() like laravel and dump() like symfony
+require_once '/var/www/webdev/examples/php/vendor/autoload.php';
+
 /**
  * Пример класса, имеющего возможность клонирования. Мы посмотрим как происходит
  * клонирование значений полей разных типов.

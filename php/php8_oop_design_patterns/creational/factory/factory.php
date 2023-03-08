@@ -1,5 +1,8 @@
 <?php
 
+// include dd() like laravel and dump() like symfony
+require_once '/var/www/webdev/examples/php/vendor/autoload.php';
+
 /* factory design pattern
 */
 
@@ -42,11 +45,13 @@ function dd($var){
 }
 
 $factory = new ComputerFactory();
+dump($factory);
+
 $computer = $factory->getComputerCustom('PC','Intel Pentium');
-dd($computer);
+dump($computer);
 
 $computer = $factory->getComputerPC();
-dd($computer);
+dump($computer);
 
 $computer = $factory->getComputerApple();
-dd($computer);
+dump($computer);

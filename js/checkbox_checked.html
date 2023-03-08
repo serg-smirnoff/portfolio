@@ -1,0 +1,25 @@
+<script type="text/javascript">
+function setChecked(obj)
+   {
+   var str = document.getElementById("text").innerHTML;
+   str = (str == "отметить" ? "снять" : "отметить");
+   document.getElementById("text").innerHTML = str;
+   
+   var check = document.getElementsByName("id[]");
+   for (var i=0; i<check.length; i++)
+      {
+      check[i].checked = obj.checked;
+      }
+   }
+</script>
+
+<form action="" method="post">
+   Что Вас больше всего интересует на нашем сайте?<br />
+   <input type="checkbox" name="id[]" value="1" /> Справочник HTML<br />
+   <input type="checkbox" name="id[]" value="2" /> Описание свойств CSS<br />
+   <input type="checkbox" name="id[]" value="3" /> Примеры готовых JavaScript`ов
+   <p>
+      <input type="checkbox" name="set" onclick="setChecked(this)" />
+      <span id="text">отметить</span> все
+   </p>
+</form>

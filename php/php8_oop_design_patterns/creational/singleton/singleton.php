@@ -1,4 +1,8 @@
 <?php
+
+// include dd() like laravel and dump() like symfony
+require_once '/var/www/webdev/examples/php/vendor/autoload.php';
+
 /**
  * Класс Одиночка предоставляет метод `GetInstance`, который ведёт себя как
  * альтернативный конструктор и позволяет клиентам получать один и тот же
@@ -66,7 +70,11 @@ class Singleton
  * Клиентский код.
  */
 $s1 = Singleton::getInstance();
+dump($s1);
+
 $s2 = Singleton::getInstance();
+dump($s2);
+
 if ($s1 === $s2) {
     echo "Singleton works, both variables contain the same instance.";
 } else {
