@@ -27,22 +27,33 @@ class ShopProduct {
                                 private string $producerFirstName = "",
                                 protected int|float $price = 0
                                ){
+
+        // раньше свойства конструктора определялись только тут, 
+        // а не передавались внутрь метода __construct
+        
+        // $this->title                 = $title;
+        // $this->$producerMainName     = $producerMainName;
+        // $this->$producerFirstName    = $producerFirstName;
+        // $this->$price                = $price;
+
     }
     
     public function __destruct(){
     }
 
-    // Вызывается при клонировании объекта
-    public function __call(){
-        return 'Объект клонирован';
-    }
+    // // Вызывается при клонировании объекта
+    // public function __call(){
+    //     return 'Объект клонирован';
+    // }
 
     public function __clone(){
+        echo 'Объект клонирован';
         return 'Объект клонирован';
     }
     
     // Вызывается при обращении к неопределенному свойству
     public function __wakeup(){
+        echo 'Свойство не определено';
         return 'Свойство не определено';
     }
 
@@ -51,27 +62,27 @@ class ShopProduct {
 
     // Методы перехватчики
 
-    // Вызывается при обращении к неопределенному свойству
-    public function __get(){
-        return 'Свойство не определено';
-    }
+    // // Вызывается при обращении к неопределенному свойству
+    // public function __get(){
+    //     return 'Свойство не определено';
+    // }
     
-    // Вызывается, когда присваивается значение неопределенному свойству
-    public function __set(){
-        return 'Вы пытаетесь присвоить значение неопределенному свойству';
-    }
+    // // Вызывается, когда присваивается значение неопределенному свойству
+    // public function __set(){
+    //     return 'Вы пытаетесь присвоить значение неопределенному свойству';
+    // }
 
-    // Вызывается, когда функция isset() вызывается для неопределенного свойства
-    public function __isset(){
-    }
+    // // Вызывается, когда функция isset() вызывается для неопределенного свойства
+    // public function __isset(){
+    // }
     
-    // Вызывается, когда функция unset() вызывается для неопределенного свойства
-    public function __unset(){
-    }
+    // // Вызывается, когда функция unset() вызывается для неопределенного свойства
+    // public function __unset(){
+    // }
     
-    // Вызывается при обращении к неопределенному нестатическому методу
-    public function __call(){
-    }
+    // // Вызывается при обращении к неопределенному нестатическому методу
+    // public function __call(){
+    // }
 
     // method getProducerFirstName()
     public function getProducerFirstName() : string {
@@ -167,6 +178,10 @@ class BookProduct extends ShopProduct{
 }
 
 $product = new ShopProduct("Тридцатая любовь Марины","Владимир","Сорокин",750);
+
+$product = clone($product);
+
+
 // var_dump($product);
 
 // var_export($product);
