@@ -1,5 +1,13 @@
 <?php
 
+$x = 5 / 2;
+var_dump($x);
+
+$y = 5 % 2;
+var_dump($y);
+
+die();
+
 // include dd() like laravel and dump() like symfony
 require_once '/var/www/webdev/examples/php/vendor/autoload.php';
 
