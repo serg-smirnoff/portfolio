@@ -1,9 +1,9 @@
 <?php
 
 class MagicMethods {
-    
-    private $data = [];
 
+    private $data = [];
+    
     public function class_name(): string{
         return __CLASS__;
     }
@@ -45,33 +45,32 @@ class MagicMethods {
     }
     
     public function __sleep(){
-
     }
 
     public function __wakeup(){
-
     }
 
-
-    public function __serialize(){
-
+    public function __serialize() : array{
+        return ['name' => $this->class_name()];
     }
 
-    public function __unserialize($arg){
-
+    public function __unserialize($arg): void{
+        echo "Calling __unserialize() magic method";
     }
 
     public function __invoke($x){
         echo $this->class_name() . " class object is called as a function!";
-        echo "<br>";
-        var_dump($x);
+        // echo "<br>";
+        // var_dump($x);
     }
 
     public static function __set_state($arg){
 
     }
 
-    public function __clone(){}
+    public function __clone(){
+        echo "Something was cloned";
+    }
 
     public function __debugInfo(){}
 
@@ -133,5 +132,33 @@ echo "<br>";
 var_dump(is_callable($obj));
 
 echo "<br><br>";
+
+// __clone()
+echo "<strong>__clone()</strong>";
+echo "<br>";
+$obj2 = clone($obj);
+echo "<br><br>";
+var_dump($obj);
+echo "<br>";
+var_dump($obj2);
+echo "<br><br>";
+
+// __serialize()
+echo "<strong>__serialize()</strong>";
+echo "<br>";
+echo "Serialized Object: " . serialize($obj) . "\n";
+echo "<br><br>";
+
+// __unserialize()
+echo "<strong>__unserialize()</strong>";
+echo "<br>";
+
+// Display the unserialized object
+echo "Unserialized Object: ";
+
+var_dump(unserialize(serialize($obj)));
+
+echo "<br><br>";
+
 echo "<strong>__destruct()</strong><br>";
 unset($obj);
