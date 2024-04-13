@@ -115,7 +115,7 @@ echo "<br><br>";
 
 // __callStatic()
 echo "<strong>__callStatic()</strong><br>";
-MagicMethods::myMethod("arg1", "arg2");// Output: Calling method: myMethod Arguments: arg1, arg2
+MagicMethods::myMethod("arg1", "arg2"); // Output: Calling method: myMethod Arguments: arg1, arg2
 
 echo "<br><br>";
 
