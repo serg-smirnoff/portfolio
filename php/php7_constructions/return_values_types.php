@@ -2,7 +2,7 @@
 /*
     В PHP 7 можно указать, значение какого типа должна вернуть функция
     function arraysSum(array ...$arrays): array
-*/
+    */
 
 function arraysSum(array ...$arrays): array{
     return array_map(function(array $array): int {

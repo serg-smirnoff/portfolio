@@ -72,7 +72,9 @@ class MagicMethods {
         echo "Something was cloned";
     }
 
-    public function __debugInfo(){}
+    public function __debugInfo(){
+        return ["Calling __debugInfo() magic method"];
+    }
 
     public function __destruct(){
         echo "Destructor called!";
@@ -157,6 +159,13 @@ echo "<br>";
 echo "Unserialized Object: ";
 
 var_dump(unserialize(serialize($obj)));
+
+echo "<br><br>";
+
+// __debugInfo
+echo "<strong>__debugInfo()</strong>";
+echo "<br>";
+var_dump($obj);
 
 echo "<br><br>";
 

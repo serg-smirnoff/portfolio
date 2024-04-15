@@ -1,4 +1,5 @@
 <?php
+
 define('ANIMALS', [
     'dog',
     'cat',
