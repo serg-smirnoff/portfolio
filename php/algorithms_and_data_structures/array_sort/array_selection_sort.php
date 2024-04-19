@@ -4,7 +4,7 @@ function selectionSort($a){
     $n = count($a);
     for ($i=0;$i<$n;$i++){
         $min = $i;
-        for ($j=$i+1; $j<$n;$j++){
+        for ($j=$i+1; $j<$n; $j++){
             if ($a[$j] < $a[$min]){
                 $min = $j;
                 // swap array elements
