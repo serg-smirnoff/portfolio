@@ -1,0 +1,7 @@
+/* Выбрать все строки с правой стороны объединения (таблица groups) и для каждой выбранной строки отобразить 
+   соответствущее ей значение из левой части (таблица users_groups), если оно существует (значение, удовлетворяющее 
+   ограничениям предложения ON или USING), или отобразить строку со значениями NULL, если соответственно нет
+ */
+
+SELECT * FROM users_groups RIGHT JOIN groups USING(gid);
+SELECT * FROM users_groups RIGHT JOIN groups USING(gid) WHERE uid IS NULL;
