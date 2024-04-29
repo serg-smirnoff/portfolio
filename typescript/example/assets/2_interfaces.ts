@@ -19,8 +19,8 @@ const rect1: Rect = {
     }
 }
 
-console.log("type " + typeof(rect1) + ": " + rect1);
-console.log("rect1.size = " + rect1.size);
+console.log("type " + typeof(rect1) + ": " + JSON.stringify(rect1));
+console.log("rect1.size = " + JSON.stringify(rect1.size));
 rect1.color = 'Black';
 console.log("rect1.color = " + rect1.color);
 
@@ -42,18 +42,32 @@ const rect2: RectWithArea = {
 console.log("rect2.getArea() = " + rect2.getArea());
 
 
-// class Human{
+interface iClock{
+    time: Date
+    setTime(date: Date): void
+}
 
-//     name : string;
-//     age : number;
+class Clock implements iClock{
+    time: Date = new Date()
+    setTime(date: Date): void {
+        this.time = date
+    }
+}
 
-//     constructor (name : string, age : number) {
-//         this.name = name;
-//         this.age  = age;
-//     }
+let clock : Clock = new Clock();
 
-// }
+console.log("Clock class  = " + JSON.stringify(Clock))
+console.log("Clock object = " + JSON.stringify(clock))
 
-// let user : Human = new Human ('Serg', 40);
 
-// console.log(user);
+interface Styles{
+    [key: string]: string
+}
+
+const css: Styles = {
+    border: '1px solid red',
+    margin: '2px 0',
+    padding: '20px 0'
+}
+
+console.log('css = ' + JSON.stringify(css))
