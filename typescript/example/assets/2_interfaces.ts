@@ -54,7 +54,7 @@ class Clock implements iClock{
     }
 }
 
-let clock : Clock = new Clock();
+let clock : iClock = new Clock();
 
 console.log("Clock class  = " + JSON.stringify(Clock))
 console.log("Clock object = " + JSON.stringify(clock))
