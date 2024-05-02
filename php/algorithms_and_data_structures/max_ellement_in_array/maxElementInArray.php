@@ -1,5 +1,4 @@
-<?
-function maximum(array $arr): int {
+<?php function maximum(array $arr): int {
     $max = $arr[0];
     for ($i = 1; $i <= sizeOf($arr); $i++){
         if ($arr[$i] > $max){ 
