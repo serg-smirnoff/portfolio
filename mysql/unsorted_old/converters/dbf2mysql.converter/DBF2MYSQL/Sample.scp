@@ -1,0 +1,43 @@
+;***********************************************************************
+;                        DBF2MySQL  demo script
+;                  Copyright (C) by Alexander Eltsyn 
+;                 E-mail: ae@nica.ru, a.eltsyn@usa.net
+;                     WWW: http://www.nica.ru/~ae
+;***********************************************************************
+;
+; Script format description:
+;
+; <dbf_file_name>,<mysql_table_name>,<ReCreate>,<delete_rows>,<skip_codepage_id_check>,<TargetCP>{,<dbf_field_name>=<mysql_field_name>}
+;
+; Where:
+;
+;  <dbf_file_name>      		- file name to transfer data from
+;  <mysql_table_name>   		- table name to transfer data to
+;  <ReCreate>           		- Recreate MySQL table structure. Possible values:
+;                       		  0: leave table structure unchanged
+;                       		  1: drop table and create new trable structure
+;                       		     according to .DBF file.
+;  <delete_rows>        		- empty table before data transfer. Values:
+;                       		  0: append .DBF data into table
+;                       		  1: delete all existing data before data transfer
+;  <skip_codepage_id_check>		- Skip codepage ID check. Values:
+;					  0: Do codepage ID check in DBF file
+;					  1: Skip codepage check
+;  <TargetCP>           		- Target code page. Values:
+;                       		  0: Current Windows codepage
+;                       		  1: Russian KOI-8
+;                       		  2: Russian MS-DOS (866)
+;                       		  3: OEM
+;  <dbf_field_name>=<mysql_field_name>	- associate DBF field name 
+;	                         	  with mysql field name. Empty value in
+;		                          <mysql_field_name> means, that field should 
+;               		          not be transfered
+;
+; ! All of the arguments may be quoted with `"`
+;
+;Example of script lines
+".\db\abit.dbf", abit, 1, 1, 1, 1, lock=""
+;
+;db\stud.dbf, abit, 0, 1, 0, 0, lock=
+;
+
