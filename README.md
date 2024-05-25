@@ -1,2 +1,3 @@
-Sergey Smirnov
-info@serg-smirnoff.com
+Sergey Smirnov  
+email: info@serg-smirnoff.com  
+tg: @sergsmirnoff  
