@@ -5,3 +5,23 @@
 
 SELECT * FROM users_groups RIGHT JOIN groups USING(gid);
 SELECT * FROM users_groups RIGHT JOIN groups USING(gid) WHERE uid IS NULL;
+
+/*
+  groups
+  1
+  2
+  3
+  4
+
+  users_groups
+  3
+  4
+  5
+  6
+
+  right_join
+  3
+  4
+  5
+  6
+*/
